@@ -15,13 +15,14 @@ dev_docker:
       --volume "$(src_dir):/src" \
       --workdir "/src/" \
       -e LOCAL_LAMBDA_SERVER_ENABLED=true \
-      -P \
+      -p 7000:7000 \
       swift-lambda-builder \
       swift run
 
 dev:
 	rm -rf "$(src_dir)/.build"
-	cd SquareNumber && swift run
+	export LOCAL_LAMBDA_SERVER_ENABLED=true
+	cd SquareNumber && /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift run
 
 dev_test_1:
 	curl --header "Content-Type: application/json" \
