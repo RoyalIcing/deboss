@@ -21,8 +21,7 @@ dev_docker:
 
 dev:
 	rm -rf "$(src_dir)/.build"
-	export LOCAL_LAMBDA_SERVER_ENABLED=true
-	cd SquareNumber && /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift run
+	LOCAL_LAMBDA_SERVER_ENABLED=true cd SquareNumber && /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift run
 
 dev_test_1:
 	curl --header "Content-Type: application/json" \
